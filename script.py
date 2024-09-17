@@ -2,7 +2,7 @@ import pandas as pd
 from itertools import combinations, permutations
 
 # set xlsx path
-xlsx_path = r'''simulated_data_90_rows.xlsx'''
+xlsx_path = r'''data.xlsx'''
 # Load the data (xlsx file)
 data = pd.read_excel(xlsx_path)
 
@@ -11,7 +11,6 @@ data = pd.read_excel(xlsx_path)
 #column 3 = Weight (in kg)
 #column 4 = Gender
 #column 5 = Height (in cm)
-
 
 # Print the data
 # print(data)
@@ -104,12 +103,19 @@ for index in data_dict:
     elif 60 <= data_dict[index]['Age']:
         s4[index] = data_dict[index]
 
-print(len(s1))
-print(len(s2))
-print(len(s3))
-print(len(s4))
+## data validation
+# print(len(s1))
+# print(len(s2))
+# print(len(s3))
+# print(len(s4))
 
-print(len(s1)+len(s2)+len(s3)+len(s4))
+# print(len(s1)+len(s2)+len(s3)+len(s4))
+
+#perm s1, s2, s3, s4
+perms_s1 = list(permutations(s1, len(s1)))
+perms_s2 = list(permutations(s2, len(s2)))
+perms_s3 = list(permutations(s3, len(s3)))
+perms_s4 = list(permutations(s4, len(s4)))
 
 # output stack!!!!
 print('Soal 1:')
@@ -125,3 +131,9 @@ print(f'Permutasi dari a intersect c: {len(perms_a_intersect_c)}')
 print(f'Permutasi dari a union c: {len(perms_a_union_c)}')
 print(f'Permutasi dari a logical disjunction b: {len(perms_a_logicaldisj_b)}')
 print(f'Permutasi dari c logical disjunction d: {len(perms_c_logicaldisj_d)}')
+
+print('\nSoal 4:')
+print(len(perms_s1))
+print(len(perms_s2))
+print(len(perms_s3))
+print(len(perms_s4))
